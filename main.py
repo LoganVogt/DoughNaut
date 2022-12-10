@@ -6,7 +6,25 @@ import math
 import random
 import pygame
 
-#TODO: everything
+"""
+Hello!  
+
+This is a small game demo I created as a university assignment.  It does what I wanted it to do when I set out, but it is far from perfect. The program suffers from disorganization, lack of planning, and general
+cleanliness. Some major improvements that I would make today are listed below: 
+
+I would first start off by making each class it's own file - this would prevent clutter and allow for more flexibility.  I thought I was being real slick
+when I wrote this all in one file - I was not, in hindsight.
+
+Then, I would create a working main file that would present the game's main assets, and begin to pull in other assets.
+
+I would also create more functions and, more importantly, make a type of object that was maybe type "Platform" and create different kinds of platforms within that object type,
+rather than creating other types and functions to deal with specific types of platforms and items.
+
+I would then begin to work on optimization - even at the time, this worked very well and smooth on my home computer, but on my dinky laptop I used for class? It struggled greatly.  I think the three things mentioned
+above would be integral in optimization, as well as other code cleanup and refactoring.
+
+These steps are only the beginning, but are what I would say are the largest parts of refactoring this code to be organized, planned and clean.
+"""
 
 #IDEAS
 #microtransaction!!!!!!!  THE FUTURE OF GAMING, BABY!!1!!111!
@@ -15,10 +33,9 @@ import pygame
 #   astronaut helmet
 #   tophat
 #propulsion images -
-#   for his neutral special, he wields a gun
 #   vacuum cleaner
 #   legs to swim
-#change shape because dough
+#change shape (because dough)
 #at the end he's cooked into a pizza (???)
 #level completion - random pun
 
@@ -675,7 +692,7 @@ while running:
             velocityY = 0
 
     #Behold: the BLINK engine!
-    #all this shit determines what to do if you're not blinking...
+    #all this stuff determines what to do if you're not blinking...
     if not isBlink:
         if movingDown and movingLeft and movingRight and movingUp:
             playerImg = lookCenter
@@ -755,8 +772,6 @@ while running:
         playerY = -50
 
     #Determining total speed of player
-    #A man has fallen into the river at this speed in Velo City!
-    #HEY!
     speed = math.sqrt(math.pow(velocityX, 2) + math.pow(velocityY, 2))
     proportionalSpeed = speed/maxSpeed 
 
@@ -1205,13 +1220,15 @@ while running:
     Player.updateCardinal(playerX, playerY, Player.width, Player.height)
     Player.draw(playerImg)
     #pygame.draw.rect(screen, RED, Player.hitbox, 3)
-    #HERE DIPSHIT
 
     propulsionSound = propulsionSounds[random.randrange(0, len(propulsionSounds))]
 
-    #determines where the propulsion shit happens and stuff
-    #I wish this wasn't so FUCKING cluttered but I think it needs to be, unfortunately
-    #Maybe turn all this shit into functions just so it's easier to digest down here, anyway
+
+    #THIS IS OLD AND BAD
+    #If I were to redo it, I would create a function that takes the input and creates images based on cardinal directions and the image being used.
+    #determines where the propulsion happens
+    #I wish this wasn't so cluttered but I think it needs to be, unfortunately - this is wrong
+    #Maybe turn all this into functions just so it's easier to digest down here, anyway
     #arbitrary values are just to make it look nice.  Had to manually tweak all of them.
     #Will probably have to do a bajillion if statements (or make individual functions)
     #if/when adding new propulsion images
